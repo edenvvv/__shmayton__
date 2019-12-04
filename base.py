@@ -10,13 +10,13 @@ sql.create_table()
 
 
 def create_folder(name, level, year):
-    new_path = f'C:/Users/Top/Desktop/shmython/GUI/{name}/{level}/{year}'
+    new_path = f'C:/{name}/{level}/{year}'
     if not os.path.exists(new_path):
         os.makedirs(new_path)
 
 
 def open_folder(name, level, year):
-    path = f'C:/Users/Top/Desktop/shmython/GUI/{name}/{level}/{year}'
+    path = f'C:/{name}/{level}/{year}'
     path = os.path.realpath(path)
     os.startfile(path)
 
