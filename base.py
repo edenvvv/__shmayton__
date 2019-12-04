@@ -44,7 +44,7 @@ def create_word(course_name, question_name, difficult_level, year):
         for row in all_data:
             photo_data = row[0]
             # Saves the image information
-            photo_path = f'C:/Users/Top/Desktop/shmython/GUI/{question_name}/{difficult_level}/{year}/{count}.jpg'
+            photo_path = f'C:/{question_name}/{difficult_level}/{year}/{count}.jpg'
             # Creates the location where the image will be saved
             sql.write_to_file(photo_data, photo_path)
             word_list.append(photo_path)
@@ -88,7 +88,7 @@ def search_question(course_name, question_name, difficult_level, year):
         for row in all_data:
             photo_data = row[0]
             # Saves the image information
-            photo_path = f'C:/Users/Top/Desktop/shmython/GUI/{question_name}/{difficult_level}/{year}/{count}.jpg'
+            photo_path = f'C:/{question_name}/{difficult_level}/{year}/{count}.jpg'
             # Creates the location where the image will be saved
             sql.write_to_file(photo_data, photo_path)
             label.insert(tk.END, f"{count}) {row[1:]} ")
