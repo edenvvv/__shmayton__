@@ -9,3 +9,5 @@
 # pip install python-docx
 ### pdf conversion:
 # pip install PyPDF2
+## PDF markup software
+### https://app.prntscr.com/en/download.html
