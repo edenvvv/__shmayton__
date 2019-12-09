@@ -11,5 +11,5 @@ def pdf_split(pdf_path):
     for i in range(inputpdf.numPages):
         output = PdfFileWriter()
         output.addPage(inputpdf.getPage(i))
-        with open("C:/[%s].pdf" % i, "wb") as outputStream:
+        with open("[%s].pdf" % i, "wb") as outputStream:
             output.write(outputStream)

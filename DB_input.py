@@ -2,7 +2,7 @@ import DB as sql
 from data import Data
 from pdf import pdf_split
 import classes
-from PS import ps
+import os
 
 
 def input_message(message):
@@ -103,13 +103,15 @@ def input_data():
 
         elif decision.lower() == 'pdf':
             try:
-                path = input('enter the path to the pdf  (Examples: C:/Users/Top/Desktop/name.PNG)   ')
-                ps(path)
+                path = input('enter the path to the pdf  (Examples: C:/Users/Top/Desktop/name.pdf)   ')
+                os.startfile(path)
+                pdf_split(path)
                 booli = input('Do you want to continue? (for no press enter no) ')
                 if booli.lower() == 'no':
                     break
-            except Exception:
+            except ArithmeticError:
                 print("Something went wrong, Try again")
 
 
 # Examples: test1 = Data('C:/Users/Top/Desktop/shmython/GUI/questions/gigi.PNG', 'math', 'Invoice set', '5')
+
