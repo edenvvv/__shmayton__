@@ -3,6 +3,7 @@ from tkinter import messagebox
 import user_db as db
 import base as main
 import DB_input as input_ui
+import sys
 db.create_table()
 top = tkinter.Tk()
 # open a page
@@ -27,12 +28,9 @@ def input_database(str3, stop):
 
 def complete_register(str1, str2, int1, int2, int3):
     """Confirms user status and logs in to the database"""
-    messagebox.showinfo("complete registration", "the registration is completed")
 
-    """
     if int1 == 0 or int2 == 0 or int3 == 0:
         str3 = "Must select status"
-    """
 
     if int1 == 1:
         str3 = "coordinator"
@@ -41,12 +39,18 @@ def complete_register(str1, str2, int1, int2, int3):
     if int3 == 1:
         str3 = "student"
 
-    """
     if int1 == 1 and int2 == 1 or int1 == 1 and int3 == 1 or int2 == 1 and int3 == 1:
         str3 = "You cannot select more than one status"
-    """
 
     db.insert_data(str3, str1, str2)
+    if str3 == "Must select status":
+        messagebox.showinfo("ERROR", "you must select status")
+        sys.exit()
+    if str3 == "You cannot select more than one status":
+        messagebox.showinfo("ERROR", "You cannot select more than one status")
+        sys.exit()
+    messagebox.showinfo("complete registration", "the registration is completed")
+    return str3
 
 # message after clicking a button
 
