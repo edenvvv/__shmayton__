@@ -16,6 +16,7 @@ stu = tkinter.IntVar()
 
 
 def input_database(str3, stop):
+    """input the data into the database"""
     data_type = db.get_data(str3)
     if data_type[0] != "student":
         stop.destroy()
@@ -25,7 +26,14 @@ def input_database(str3, stop):
 
 
 def complete_register(str1, str2, int1, int2, int3):
+    """Confirms user status and logs in to the database"""
     messagebox.showinfo("complete registration", "the registration is completed")
+
+    """
+    if int1 == 0 or int2 == 0 or int3 == 0:
+        str3 = "Must select status"
+    """
+
     if int1 == 1:
         str3 = "coordinator"
     if int2 == 1:
@@ -33,12 +41,18 @@ def complete_register(str1, str2, int1, int2, int3):
     if int3 == 1:
         str3 = "student"
 
+    """
+    if int1 == 1 and int2 == 1 or int1 == 1 and int3 == 1 or int2 == 1 and int3 == 1:
+        str3 = "You cannot select more than one status"
+    """
+
     db.insert_data(str3, str1, str2)
 
 # message after clicking a button
 
 
 def login(str1, str2):
+    """Validation of login interface"""
     data = db.get_data(str1)
     if data[1] == str1 and data[2] == str2:
         main.main()
@@ -47,6 +61,7 @@ def login(str1, str2):
 
 
 def openapage2():
+    """Responsible for login interface"""
     root2 = tkinter.Toplevel()
     # creating another page "layer"
     top.withdraw()
@@ -75,6 +90,7 @@ def quitpage():
 
 
 def openpage():
+    """Responsible for registration interface"""
     root = tkinter.Toplevel()
     top.withdraw()
     t = tkinter.Canvas(root, height=400, width=500)
@@ -82,7 +98,7 @@ def openpage():
     background_label1 = tkinter.Label(root, image=background_image1)
     background_label1.place(relwidth=1, relheight=1)
     user_name_e = tkinter.Entry(root, bd=5, width=20)
-    password_e = tkinter.Entry(root, bd=5, width=20)
+    password_e = tkinter.Entry(root, bd=5, width=20, show='*')
     user_name_l = tkinter.Label(root, text="User name", width=10, font=1000, bd=0)
     password_l = tkinter.Label(root, text="Password", width=10, font=1000, bd=0)
     user_type = tkinter.Checkbutton(root, text="Coordinator", variable=cor, onvalue=1, offvalue=0, height=1, width=10)

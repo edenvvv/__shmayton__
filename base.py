@@ -11,16 +11,19 @@ def main():
     sql.create_table()
 
     def create_folder(name, level, year):
+        """Creates a folder in the specified location"""
         new_path = f'C:/{name}/{level}/{year}'
         if not os.path.exists(new_path):
             os.makedirs(new_path)
 
     def open_folder(name, level, year):
+        """open a folder in the specified location"""
         path = f'C:/{name}/{level}/{year}'
         path = os.path.realpath(path)
         os.startfile(path)
 
     def create_word(course_name, question_name, difficult_level, year):
+        """Creates a WORD document with the questions asked"""
         try:
 
             if course_name == '' or question_name == '':
@@ -64,6 +67,7 @@ def main():
             gui_print(mess)
 
     def search_question(course_name, question_name, difficult_level, year):
+        """Creates a folder with the questions asked"""
         try:
 
             if course_name == '' or question_name == '':

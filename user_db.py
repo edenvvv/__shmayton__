@@ -5,8 +5,8 @@ cur = conn.cursor()
 
 
 def create_table():
+    """Creates a table only if doesn't exists"""
     with conn:
-        # Creates a table only if doesn't exists
         cur.execute("""CREATE TABLE IF NOT EXISTS usersDB
                   (user_type TEXT NOT NULL,
                    user_name TEXT PRIMARY KEY,
